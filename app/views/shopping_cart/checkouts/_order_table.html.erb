@@ -1,0 +1,53 @@
+<table class="table order-table">
+  <th>Item</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  <th>Total</th>
+
+  <% @order.order_items.each do |order_item| %>
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td>
+              <h4>
+                <%= order_item.item.title %>
+              </h4>
+              <p>
+                <%= order_item.item.description %>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <h4>
+          <%= number_to_currency(order_item.item.price) %>
+        </h4>
+      </td>
+      <td>
+        <h4>
+          <%= order_item.quantity %>
+        </h4>
+      </td>
+      <td>
+        <h4>
+          <%= number_to_currency(order_item.price) %>
+        </h4>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div class="sub-total">
+  <p>
+    <%= "Item total: #{number_to_currency(@order.item_total)}"  %>
+  </p>
+  <p>
+    <%= "Shipping: #{number_to_currency(@order.shipping)}" %>
+  </p>
+</div>
+<div class="order-total">
+  <p>
+    <%= "Total: #{number_to_currency(@order.order_total)}" %>
+  </p>
+</div>

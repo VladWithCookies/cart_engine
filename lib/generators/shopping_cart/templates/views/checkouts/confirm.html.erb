@@ -1,0 +1,151 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>
+        Checkout
+      </h3>
+    </div>
+    <div class="col-md-10">
+      <ul class="nav nav-pills">
+        <li role="presentation">
+          <a href="<%= cart.checkout_address_path %>">
+            Address
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="<%= cart.checkout_delivery_path %>">
+            Delivery
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="<%= cart.checkout_payment_path %>">
+            Payment
+          </a>
+        </li>
+        <li class="active" role="presentation">
+          <a>
+            Confirm
+          </a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>
+            Complete
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h3>
+    Confirm
+  </h3>
+  <div class="confirm">
+    <div class="row">
+      <div class="col-md-3">
+        <table>
+          <b>
+            Shipping
+          </b>
+          <a href="<%= cart.checkout_address_path %>">(edit)</a>
+          <tr>
+            <td>
+              <%= "#{@shipping_address.firstname} #{@shipping_address.lastname}" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= @shipping_address.street %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= @shipping_address.city %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= @shipping_address.country %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= "Phone #{@shipping_address.phone}" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-3">
+        <table>
+          <b>
+            Billing
+          </b>
+          <a href="<%= cart.checkout_address_path %>">(edit)</a>
+          <tr>
+            <td>
+              <%= "#{@shipping_address.firstname} #{@shipping_address.lastname}" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= @billing_address.street %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= @billing_address.city %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= @billing_address.country %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= "Phone #{@billing_address.phone}" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-3">
+        <table>
+          <b>
+            <%= t('text.shipment') %>
+          </b>
+          <a href="<%= cart.checkout_delivery_path %>">(edit)</a>
+          <tr>
+            <td>
+              <% case @order.shipping %>
+                <% when 5 %>
+                  <%= "UPS Ground" %>
+                <% when 10 %>
+                  <%= "UPS Two Day" %>
+                <% when 15 %>
+                  <%= "Ups One Day" %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-3">
+        <table>
+          <b>
+            Payment
+          </b>
+          <a href="<%= cart.checkout_payment_path %>">(edit)</a>
+          <tr>
+            <td>
+              <%= @credit_card.cvv %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= "#{@credit_card.expiration_month} / #{@credit_card.expiration_year}" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <%= render "order_table" %>
+    <%= link_to "Place order", cart.checkout_complete_path, class: "btn btn-default" %>
+  </div>
+</div>

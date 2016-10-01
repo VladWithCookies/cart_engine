@@ -1,0 +1,89 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>
+        Checkout
+      </h3>
+    </div>
+    <div class="col-md-10">
+      <ul class="nav nav-pills">
+        <li role="presentation">
+          <a href="<%= cart.checkout_address_path %>">
+            Address
+          </a>
+        </li>
+        <li class="active" role="presentation">
+          <a>
+            Delivery
+          </a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>
+            Payment
+          </a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>
+            Confirm
+          </a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>
+            Complete
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="delivery-form">
+        <%= form_tag cart.checkout_delivery_path, method: "post" do %>
+          <%= radio_button_tag :shipping_price, 5, active: true %>
+          <%= label :shipping_price, 'UPS Ground +$5.00' %>
+          <br/>
+          <%= radio_button_tag :shipping_price, 10 %>
+          <%= label :shipping_price, 'UPS Two Day +$10.00' %>
+          <br/>
+          <%= radio_button_tag :shipping_price, 15 %>
+          <%= label :shipping_price, 'UPS One Day +$15.00' %>
+          <br/>
+          <button class="btn btn-default">Save</button>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="order-summary">
+        <h2>
+          Summary
+        </h2>
+        <table>
+          <tr>
+            <td>
+              Item total
+            </td>
+            <td>
+              <%= number_to_currency(@order.item_total) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Shipping
+            </td>
+            <td>
+              <%= number_to_currency(@order.shipping) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Total
+            </td>
+            <td>
+              <%= number_to_currency(@order.order_total) %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

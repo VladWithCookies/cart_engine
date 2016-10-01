@@ -1,0 +1,6 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key.to_s == 'notice' ? 'success' : 'danger' %>">
+    <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>
+    <%= content_tag :div, value, :id => "flash_#{key}" %>
+  </div>
+<% end %>

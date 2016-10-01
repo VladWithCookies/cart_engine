@@ -1,0 +1,19 @@
+<%= form_tag("/cart/update_all", controller: 'order_items', action: :update_all, method: :post) do %>
+  <table class="table">
+    <th>Item</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total</th>
+    <th></th>
+    <% @order_items.each do |order_item| %>
+      <%= render 'order_item', order_item: order_item %>
+    <% end %>
+  </table>
+  
+  <%= render('sub_total') %>
+  
+  <%= button_to "Update", cart.update_all_path, class: "btn btn-default" %>
+  <%= button_to "Empty cart", "/cart/empty", method: "delete", class: "btn btn-default" %>
+  <%= link_to "Checkout", "/cart/checkout/address", class: "btn btn-primary"%>
+  
+<% end %>

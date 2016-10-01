@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>Checkout</h3>
+    </div>
+    <div class="col-md-10">
+      <ul class="nav nav-pills">
+        <li class="active" role="presentation">
+          <a>Address</a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>Delivery</a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>Payment</a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>Confirm</a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>Complete</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="address-form">
+      <%= form_tag "/cart/checkout/address", method: 'post' do %>
+        <div class="col-md-4">
+          <h4> Billing address</h4>
+
+          <%= fields_for :billing_address do |f| %>
+            <%= render 'address_form', f: f %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <h4>Shipping address</h4>
+
+          <%= check_box_tag :use_billing, 1, true %>
+          <label>Use billing address</label>
+          <%= fields_for :shipping_address do |f| %>
+            <%= render 'address_form', f: f %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <h4>Order summary</h4>
+
+          <div class="total">
+            <%= "Total: #{number_to_currency(@order.item_total)}"   %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <button class="btn btn-default">Save</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<tr>
+  <td>
+    <table>
+      <tr>
+        <td>
+          <h4><%= order_item.item.title %></h4>
+          <p><%= order_item.item.description %></p>
+        </td>
+      </tr>
+    </table>
+  </td>
+  <td>
+    <h4>
+      <%= number_to_currency(order_item.item.price) %>
+    </h4>
+  </td>
+  <td>
+    <%= number_field_tag('quantity['+order_item.id.to_s+']', order_item.quantity, {min: 1, }) %>
+  </td>
+  <td>
+    <h4>
+      <%= number_to_currency(order_item.price) %>
+    </h4>
+  </td>
+  <td>
+    <%= link_to "Remove", "/cart/destroy_item/#{order_item.id}" %>
+  </td>
+</tr>

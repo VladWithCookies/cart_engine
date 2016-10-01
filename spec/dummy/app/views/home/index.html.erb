@@ -1,0 +1,12 @@
+<h3><%= @item.title %></h3>
+<h4>Price: <%= @item.price%></h4>
+
+<%= form_for @order_item, url: cart.order_items_path do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.hidden_field(:item_id, value: @item.id) %>
+      <%= f.number_field(:quantity, class: "form-control", min: 1, value: 1) %>
+      <button class="btn btn-primary">ADD TO CART</button>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>Checkout</h3>
+    </div>
+    <div class="col-md-10">
+      <ul class="nav nav-pills">
+        <li role="presentation">
+          <a href="<%= cart.checkout_address_path %>">
+            Address
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="<%= cart.checkout_delivery_path %>">
+            Delivery
+          </a>
+        </li>
+        <li class="active" role="presentation">
+          <a>
+            Payment
+          </a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>
+            Confirm
+          </a>
+        </li>
+        <li class="disabled" role="presentation">
+          <a>
+            Complete
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="payment-form">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>
+          Credit card
+        </h3>
+        <%= form_for @credit_card, url: "/cart/checkout/payment" do |f| %>
+          <%= f.text_field :number, placeholder: 'Card number' %>
+          <p>Expiration date:</p>
+          <%= f.select :expiration_month, Date::MONTHNAMES[1..12] %>
+          <br>
+          <%= f.select :expiration_year, Time.now.year.. 8.years.from_now.year %>
+          <br>
+          <%= f.text_field :cvv, placeholder: 'Card code'  %>
+          <br>
+          <button class="btn btn-default">Save</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
