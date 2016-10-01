@@ -1,6 +1,5 @@
 require "shopping_cart/engine"
 require "aasm"
-require "enumerize"
 require "reform/rails"
 
 module ShoppingCart

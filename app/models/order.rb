@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
   include AASM
-  extend Enumerize
 
   belongs_to :credit_card
   belongs_to :billing_address, class_name: 'Address'
@@ -43,8 +42,6 @@ class Order < ApplicationRecord
       transitions to: :canceled, from: :in_queue
     end
   end
-
-  enumerize :state, in: aasm.states
 
   def add_item(item_id, quantity)
     item = ShoppingCart.item_class.constantize.find_by(id: item_id)

@@ -45,7 +45,7 @@ ShoppingCart.setup do |config|
 end
 ```
 
-## Castomization
+## Customization
 ### Views
 You can get shopping cart views to customize it by running:
 ```ruby
