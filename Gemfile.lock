@@ -3,7 +3,6 @@ PATH
   specs:
     shopping_cart (0.1.0)
       aasm
-      enumerize
       rails (>= 5.0.0.rc2, < 5.1)
       reform-rails
       shoulda-context (~> 1.0, >= 1.0.1)
@@ -68,8 +67,6 @@ GEM
       declarative (>= 0.0.8, < 1.0.0)
       representable (>= 2.4.0, <= 3.1.0)
       uber
-    enumerize (2.0.0)
-      activesupport (>= 3.2)
     erubis (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)

@@ -79,5 +79,13 @@ class ShoppingCart::CheckoutsController
 end
 ```
 
+Also you can use next_step method to easy redirect to next checkout step:
+```ruby
+def custom_step
+  #custom_step action code goes here
+  next_step
+end
+```
+
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
