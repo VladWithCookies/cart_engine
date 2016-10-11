@@ -11,7 +11,7 @@ module ShoppingCart
       redirect_to cart.order_items_path
     end
 
-    def destroy_item
+    def destroy
       @order_item = OrderItem.find_by(id: params[:id])
       @order_item.delete
       current_order.get_item_total

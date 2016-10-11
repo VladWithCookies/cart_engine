@@ -10,8 +10,6 @@ ShoppingCart::Engine.routes.draw do
     get "/checkout/#{step}" => "checkouts##{step}"
   end
 
-  get "/destroy_item/:id" => "order_items#destroy_item"
-
   post  "/checkout/address" => "checkouts#address_confirm"
   post  "/checkout/delivery" => "checkouts#delivery_confirm"
   post  "/checkout/payment" => "checkouts#payment_confirm"

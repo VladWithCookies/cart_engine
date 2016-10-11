@@ -23,6 +23,6 @@
     </h4>
   </td>
   <td>
-    <%= link_to "Remove", "/cart/destroy_item/#{order_item.id}" %>
+    <%= link_to "Remove", order_item_path(order_item), method: :delete %>
   </td>
 </tr>

@@ -20,10 +20,10 @@ RSpec.describe ShoppingCart::OrderItemsController, :type => :controller do
     end
   end
 
-  describe "GET #destroy_item" do
+  describe "DELETE #destroy" do
     it "destroy order item" do
       expect do
-        get :destroy_item, use_route: :shopping_cart, id: order_item.id
+        get :destroy, use_route: :shopping_cart, id: order_item.id
       end.to change(OrderItem, :count).by(-1)
     end
 
