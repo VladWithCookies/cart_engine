@@ -6,5 +6,7 @@ FactoryGirl.define do
     state 'in_progress'
     discount 0
     credit_card      
+    association :billing_address, factory: :address
+    association :shipping_address, factory: :address
   end
 end
