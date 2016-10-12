@@ -8,9 +8,6 @@ ShoppingCart::Engine.routes.draw do
   
   ShoppingCart.checkout_steps.each do |step|
     get "/checkout/#{step}" => "checkouts##{step}"
+    post "/checkout/#{step}" => "checkouts##{step}_confirm"
   end
-
-  post  "/checkout/address" => "checkouts#address_confirm"
-  post  "/checkout/delivery" => "checkouts#delivery_confirm"
-  post  "/checkout/payment" => "checkouts#payment_confirm"
 end

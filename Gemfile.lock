@@ -3,6 +3,7 @@ PATH
   specs:
     shopping_cart (0.1.0)
       aasm
+      jquery-rails
       rails (>= 5.0.0.rc2, < 5.1)
       reform-rails
       shoulda-context (~> 1.0, >= 1.0.1)
@@ -181,7 +182,6 @@ PLATFORMS
 DEPENDENCIES
   capybara
   factory_girl_rails
-  jquery-rails
   rails-controller-testing
   rspec-rails
   shopping_cart!

@@ -1,7 +1,6 @@
 require "shopping_cart/engine"
 require "aasm"
 require "reform/rails"
-require "jquery-rails"
 
 module ShoppingCart
   mattr_accessor :item_class

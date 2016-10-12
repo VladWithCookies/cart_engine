@@ -23,12 +23,12 @@ RSpec.describe ShoppingCart::OrderItemsController, :type => :controller do
   describe "DELETE #destroy" do
     it "destroy order item" do
       expect do
-        get :destroy, use_route: :shopping_cart, id: order_item.id
+        delete :destroy, use_route: :shopping_cart, id: order_item.id
       end.to change(OrderItem, :count).by(-1)
     end
 
     it 'redirect to cart_path' do
-      get :destroy_item, use_route: :shopping_cart, id: order_item.id
+      delete :destroy, use_route: :shopping_cart, id: order_item.id
       expect(response).to redirect_to('/cart/order_items')
     end
   end

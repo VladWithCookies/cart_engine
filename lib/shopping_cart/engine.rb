@@ -1,5 +1,6 @@
 module ShoppingCart
   class Engine < ::Rails::Engine
+    require "jquery-rails"
     isolate_namespace ShoppingCart
     engine_name 'cart'
     
